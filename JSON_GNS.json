@@ -1,0 +1,159 @@
+{
+    "as_numbers": {
+      "AS_X": 65001,  
+      "AS_Y": 65002   
+    },
+    "architecture": [
+      {
+        "router": "Router1",
+        "as": "AS_X",
+        "connections": [
+          {
+            "to": "Router3",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/1",
+            "ip": "1:1:3::1/64",
+            "peer_ip": "1:1:3::3/64"
+          },
+          {
+            "to": "Router4",
+            "interface": "GigabitEthernet0/1",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:1:4::1/64",
+            "peer_ip": "1:1:4::4/64"
+          },
+          {
+            "to": "Router8",
+            "interface": "GigabitEthernet0/2",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:1:8::1/64",
+            "peer_ip": "1:1:8::8/64"
+          }
+        ],
+        "loopback": "192.168.1.1/32"
+      },
+      {
+        "router": "Router2",
+        "as": "AS_X",
+        "connections": [
+          {
+            "to": "Router4",
+            "interface": "GigabitEthernet0/1",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:2:4::2/64",
+            "peer_ip": "1:2:4::4/64"
+          },
+          {
+            "to": "Router3",
+            "interface": "GigabitEthernet0/2",
+            "peer_interface": "GigabitEthernet0/2",
+            "ip": "1:2:3::2/64",
+            "peer_ip": "1:2:3::3/64"
+          },
+          {
+            "to": "Router9",
+            "interface": "GigabitEthernet0/3",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:2:9::2/64",
+            "peer_ip": "1:2:9::9/64"
+          }
+        ],
+        "loopback": "::1/64"
+      },
+      {
+        "router": "Router3",
+        "as": "AS_X",
+        "connections": [
+          {
+            "to": "Router2",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/1",
+            "ip": "1:2:3::3/64",
+            "peer_ip": "1:2:3::2/64"
+          },
+          {
+            "to": "Router4",
+            "interface": "GigabitEthernet0/2",
+            "peer_interface": "GigabitEthernet0/2",
+            "ip": "1:3:4::3/64",
+            "peer_ip": "1:3:4::4/64"
+          }
+        ],
+        "loopback": "::1/64"
+      },
+      {
+        "router": "Router9",
+        "as": "AS_Y",
+        "connections": [
+          {
+            "to": "Router10",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/1",
+            "ip": "1:9:10::9/64",
+            "peer_ip": "1:9:10::10/64"
+          },
+          {
+            "to": "Router11",
+            "interface": "GigabitEthernet0/2",
+            "peer_interface": "GigabitEthernet0/2",
+            "ip": "1:9:11::9/64",
+            "peer_ip": "1:9:11::11/64"
+          },
+          {
+            "to": "Router2",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/3",
+            "ip": "1:2:9::9/64",
+            "peer_ip": "1:2:9::2/64"
+          }
+        ],
+        "loopback": "::1/64"
+      },
+      {
+        "router": "Router8",
+        "as": "AS_Y",
+        "connections": [
+          {
+            "to": "Router1",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/2",
+            "ip": "1:1:8::8/64",
+            "peer_ip": "1:1:8::1/64"
+          }
+        ],
+        "loopback": "::1/64"
+      }
+    ],
+    "protocols": {
+      "igp": {
+        "AS_X": "RIP",
+        "AS_Y": "OSPF"
+      },
+      "bgp": [
+        {
+          "router": "Router1",
+          "as_number": 65001,
+          "neighbors": [
+            {
+              "neighbor": "Router8",
+              "remote_as": 65002
+            }
+          ]
+        },
+        {
+          "router": "Router2",
+          "as_number": 65001,
+          "neighbors": [
+            {
+              "neighbor": "Router9",
+              "remote_as": 65002
+            }
+          ]
+        }
+      ]
+    },
+    "deployment": {
+      "method": "Drag and Drop"
+    }
+  }
+  
