@@ -82,6 +82,34 @@
         "loopback": "::1/64"
       },
       {
+        "router": "Router4",
+        "as": "AS_X",
+        "connections": [
+          {
+            "to": "Router1",
+            "interface": "GigabitEthernet0/0",
+            "peer_interface": "GigabitEthernet0/1",
+            "ip": "1:1:4::4/64",
+            "peer_ip": "1:1:4::1/64"
+          },
+          {
+            "to": "Router3",
+            "interface": "GigabitEthernet0/1",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:3:4::4/64",
+            "peer_ip": "1:3:4::3/64"
+          },
+          {
+            "to": "Router2",
+            "interface": "GigabitEthernet0/2",
+            "peer_interface": "GigabitEthernet0/0",
+            "ip": "1:2:4::4/64",
+            "peer_ip": "1:2:4::2/64"
+          }
+        ],
+        "loopback": "192.168.1.1/32"
+      },
+      {
         "router": "Router9",
         "as": "AS_Y",
         "connections": [
