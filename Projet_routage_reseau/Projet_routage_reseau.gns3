@@ -31,8 +31,8 @@
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"1000.0\" height=\"700.0\"><ellipse cx=\"500\" rx=\"500\" cy=\"350\" ry=\"350\" fill=\"#\" fill-opacity=\"0.0\" stroke-width=\"2\" stroke=\"#ff0000\" /></svg>",
-                "x": 194,
-                "y": -349,
+                "x": 159,
+                "y": -369,
                 "z": 0
             },
             {
@@ -337,8 +337,8 @@
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"60\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">FE0/0</text></svg>",
-                "x": 851,
-                "y": 281,
+                "x": 834,
+                "y": 234,
                 "z": 2
             },
             {
@@ -355,8 +355,26 @@
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"63\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">GE1/0</text></svg>",
-                "x": 941,
-                "y": 185,
+                "x": 925,
+                "y": 124,
+                "z": 2
+            },
+            {
+                "drawing_id": "f39f83e4-5d54-4015-95fe-474f27c5d548",
+                "locked": false,
+                "rotation": 0,
+                "svg": "<svg width=\"124\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">fc00:1:8::/64</text></svg>",
+                "x": 56,
+                "y": -208,
+                "z": 2
+            },
+            {
+                "drawing_id": "e710476f-572f-499e-b2d9-42954e160a1d",
+                "locked": false,
+                "rotation": 0,
+                "svg": "<svg width=\"124\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">fc00:2:9::/64</text></svg>",
+                "x": 61,
+                "y": 115,
                 "z": 2
             }
         ],
@@ -1176,7 +1194,7 @@
                     "dynamips_id": 4,
                     "exec_area": 64,
                     "idlemax": 500,
-                    "idlepc": "0x62cc930c",
+                    "idlepc": "0x0",
                     "idlesleep": 30,
                     "image": "c7200-advipservicesk9-mz.152-4.S5.image",
                     "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
@@ -1763,8 +1781,8 @@
                 "symbol": ":/symbols/router.svg",
                 "template_id": "724a8004-ffde-43f4-91d9-2724369dbb5c",
                 "width": 66,
-                "x": 903,
-                "y": 234,
+                "x": 887,
+                "y": 181,
                 "z": 1
             }
         ]
