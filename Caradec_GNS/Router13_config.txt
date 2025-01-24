@@ -1,0 +1,20 @@
+hostname Router13
+!
+interface Loopback0
+ ip address 192.168.2.6/32
+!
+interface GigabitEthernet0/0
+ ipv6 address 2:5::13/64
+ no shutdown
+!
+interface GigabitEthernet0/2
+ ipv6 address 2:6::13/64
+ no shutdown
+!
+router ospf 1
+ router-id 192.168.2.6
+!
+router bgp 65002
+ neighbor Router12 remote-as 65002
+ neighbor Router14 remote-as 65002
+!

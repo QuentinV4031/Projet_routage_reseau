@@ -1,0 +1,22 @@
+hostname Router4
+!
+interface Loopback0
+ ip address 192.168.1.4/32
+!
+interface GigabitEthernet0/2
+ ipv6 address 1:3::4/64
+ no shutdown
+!
+interface GigabitEthernet0/3
+ ipv6 address 1:5::4/64
+ no shutdown
+!
+router rip
+ version 2
+ network 192.168.1.0
+!
+router bgp 65001
+ neighbor Router2 remote-as 65001
+ neighbor Router6 remote-as 65001
+ neighbor Router11 remote-as 65002
+!

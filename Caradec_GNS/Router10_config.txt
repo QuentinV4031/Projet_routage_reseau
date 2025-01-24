@@ -1,0 +1,20 @@
+hostname Router10
+!
+interface Loopback0
+ ip address 192.168.2.3/32
+!
+interface GigabitEthernet0/0
+ ipv6 address 2:2::10/64
+ no shutdown
+!
+interface GigabitEthernet0/1
+ ipv6 address 2:3::10/64
+ no shutdown
+!
+router ospf 1
+ router-id 192.168.2.3
+!
+router bgp 65002
+ neighbor Router9 remote-as 65002
+ neighbor Router11 remote-as 65002
+!
