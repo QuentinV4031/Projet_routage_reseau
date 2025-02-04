@@ -1,206 +1,370 @@
 {
-    "as" : { 
-      "as_numbers": {
-      "AS_X": 1,  
-      "AS_Y": 2   
-        },
-      "range": {
-        "AS_X" : "1::/16",
-        "AS_Y": "2::/16"
-      }
+  "as" : { 
+    "as_numbers": {
+      "AS_A": 1,  
+      "AS_B": 2,
+      "AS_C":3,
+      "AS_D":4,
+      "AS_E":5,
+      "AS_F":6
     },
-    "architecture": [
-      {
-        "router": "R1",
-        "as": "AS_X",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"1:1:3::1/64",
-            "igp":"True"
-          },
-          {
-            "interface":"FastEthernet0/0",
-            "ip":"fc00:1:8::1/64",
-            "igp":"False"
-          }
-        ],
-        "ebgp":[
-          {
-            "to":"R8",
-            "peer_ip":"fc00:1:8::8",
-            "peer_as":"AS_Y"
-          }
-        ],
-        "loopback": "1::100:1"
-      },
-      {
-        "router": "R2",
-        "as": "AS_X",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"1:2:3::2/64",
-            "igp":"True"
-          },
-          {
-            "interface":"FastEthernet0/0",
-            "ip":"fc00:2:9::2/64",
-            "igp":"False"
-          }
-        ],
-        "ebgp":[
-          {
-            "to":"R9",
-            "peer_ip":"fc00:2:9::9",
-            "peer_as":"AS_Y"
-          }
-        ],
-        "loopback": "1::100:2"
-      },
-      {
-        "router": "R3",
-        "as": "AS_X",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"1:1:3::3/64",
-            "igp":"True"
-          },
-          {
-            "interface":"GigabitEthernet2/0",
-            "ip":"1:2:3::3/64",
-            "igp":"True"
-          },
-          {
-            "interface":"GigabitEthernet3/0",
-            "ip":"1:3:4::3/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[],
-        "loopback": "1::100:3"
-      },
-      {
-        "router": "R4",
-        "as": "AS_X",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"1:3:4::4/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[],
-        "loopback": "1::100:4"
-      },
-      {
-        "router": "R9",
-        "as": "AS_Y",
-        "interfaces":[
-          {
-            "interface":"FastEthernet0/0",
-            "ip":"fc00:2:9::9/64",
-            "igp":"False"
-          },
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"2:9:10::9/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[
-          {
-            "to":"R2",
-            "peer_ip":"fc00:2:9::2",
-            "peer_as":"AS_X"
-          }
-        ],
-        "loopback": "2::100:9"
-      },
-      {
-        "router": "R8",
-        "as": "AS_Y",
-        "interfaces":[
-          {
-            "interface":"FastEthernet0/0",
-            "ip":"fc00:1:8::8/64",
-            "igp":"False"
-          },
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"2:8:10::8/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[
-          {
-            "to":"R1",
-            "peer_ip":"fc00:1:8::1",
-            "peer_as":"AS_X"
-          }
-        ],
-        "loopback": "2::100:8"
-      }
-      ,
-      {
-        "router": "R10",
-        "as": "AS_Y",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"2:8:10::10/64",
-            "igp":"True"
-          },
-          {
-            "interface":"GigabitEthernet2/0",
-            "ip":"2:9:10::10/64",
-            "igp":"True"
-          },
-          {
-            "interface":"GigabitEthernet3/0",
-            "ip":"2:10:11::10/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[],
-        "loopback":"2::100:10"
-      },
-      {
-        "router":"R11",
-        "as":"AS_Y",
-        "interfaces":[
-          {
-            "interface":"GigabitEthernet1/0",
-            "ip":"2:10:11::11/64",
-            "igp":"True"
-          }
-        ],
-        "ebgp":[],
-        "loopback":"2::100:11"
-      }
-    ],
-    "protocols": {
-      "igp": {
-        "AS_X": "RIP",
-        "AS_Y": "OSPF"
-      },
-      "bgp_policies": {
-        "AS_X":[
-          {
-            "Neighbor":"AS_Y",
-            "relation":"peer"
-          } 
-        ],  
-        "AS_Y":[
-          {
-            "Neighbor":"AS_X",
-            "relation":"peer"
-          }
-        ]
-      }
-    },
-    "deployment": {
-      "method": "Drag and Drop" 
+    "range": {
+      "AS_A" : "1::/16",
+      "AS_B": "2::/16",
+      "AS_C":"3::/16",
+      "AS_D":"4::/16",
+      "AS_E":"5::/16",
+      "AS_F":"6::/16"
     }
+  },
+  "architecture": [
+    {
+      "router": "R1",
+      "as": "AS_A",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"1:1:3::1/64",
+          "igp":"True"
+        },
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:1:8::1/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R8",
+          "peer_ip":"fc00:1:8::8",
+          "peer_as":"AS_B"
+        }
+      ],
+      "loopback": "1::100:1"
+    },
+    {
+      "router": "R2",
+      "as": "AS_A",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"1:2:3::2/64",
+          "igp":"True"
+        },
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:2:9::2/64",
+          "igp":"False"
+        },
+        {
+          "interface":"GigabitEthernet2/0",
+          "ip":"fc00:2:5::2/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R9",
+          "peer_ip":"fc00:2:9::9",
+          "peer_as":"AS_B"
+        },
+        {
+          "to":"R5",
+          "peer_ip":"fc00:2:5::5",
+          "peer_as":"AS_C"
+        }
+      ],
+      "loopback": "1::100:2"
+    },
+    {
+      "router": "R3",
+      "as": "AS_A",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"1:1:3::3/64",
+          "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet2/0",
+          "ip":"1:2:3::3/64",
+          "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet3/0",
+          "ip":"1:3:4::3/64",
+          "igp":"True"
+        }
+      ],
+      "ebgp":[],
+      "loopback": "1::100:3"
+    },
+    {
+      "router": "R4",
+      "as": "AS_A",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"1:3:4::4/64",
+          "igp":"True"
+        },
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:4:6::4/16",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R6",
+          "peer_ip":"fc00:4:6::6",
+          "peer_as":"AS_D"
+        }
+      ],
+      "loopback": "1::100:4"
+    },
+    {
+      "router":"R5",
+      "as":"AS_C",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:2:5::5/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R2",
+          "peer_ip":"fc00:2:5::2",
+          "peer_as":"AS_A"
+        }
+      ],
+      "loopback":"3::100:5"
+    },
+    {
+      "router":"R6",
+      "as":"AS_D",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:4:6::6/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R4",
+          "peer_ip":"fc00:4:6::4",
+          "peer_as":"AS_A"
+        }
+      ],
+      "loopback":"4::100:6"
+    },
+    {
+      "router":"R7",
+      "as":"AS_E",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:7:11::7/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R11",
+          "peer_ip":"fc00:7:11::11",
+          "peer_as":"AS_B"
+        }
+      ],
+      "loopback":"5::100:7"
+    },
+    {
+      "router": "R9",
+      "as": "AS_B",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:2:9::9/64",
+          "igp":"False"
+        },
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"2:9:10::9/64",
+          "igp":"True"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R2",
+          "peer_ip":"fc00:2:9::2",
+          "peer_as":"AS_A"
+        }
+      ],
+      "loopback": "2::100:9"
+    },
+    {
+      "router": "R8",
+      "as": "AS_B",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:1:8::8/64",
+          "igp":"False"
+        },
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"2:8:10::8/64",
+          "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet2/0",
+          "ip":"fc00:8:12::8/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R1",
+          "peer_ip":"fc00:1:8::1",
+          "peer_as":"AS_A"
+        },
+        {
+          "to":"R12",
+          "peer_ip":"fc00:8:12::12",
+          "peer_as":"AS_F"
+        }
+      ],
+      "loopback": "2::100:8"
+    },
+    {
+      "router": "R10",
+      "as": "AS_B",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"2:8:10::10/64",
+          "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet2/0",
+          "ip":"2:9:10::10/64",
+          "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet3/0",
+          "ip":"2:10:11::10/64",
+          "igp":"True"
+        }
+      ],
+      "ebgp":[],
+      "loopback":"2::100:10"
+    },
+    {
+      "router":"R11",
+      "as":"AS_B",
+      "interfaces":[
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"2:10:11::11/64",
+          "igp":"True"
+        }
+      ],
+      "ebgp":[],
+      "loopback":"2::100:11"
+    },
+    {
+      "router":"R12",
+      "as":"AS_F",
+      "interfaces":[
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:8:12::12/64",
+          "igp":"False"
+        }
+      ],
+      "ebgp":[
+        {
+          "to":"R8",
+          "peer_ip":"fc00:8:12::8",
+          "peer_as":"AS_B"
+        }
+      ],
+      "loopback":"6::100:12"
+    }
+  ],
+  "protocols": {
+    "igp": {
+      "AS_A": "RIP",
+      "AS_B": "OSPF",
+      "AS_C": "RIP",
+      "AS_D": "RIP",
+      "AS_E": "RIP",
+      "AS_F": "RIP"
+    },
+    "bgp_policies": {
+      "AS_A":[
+        {
+          "Neighbor":"AS_B",
+          "relation":"peer"
+        },
+        {
+          "Neighbor":"AS_C",
+          "relation":"peer"
+        },
+        {
+          "Neighbor":"AS_D",
+          "relation":"client"
+        }
+      ],  
+      "AS_B":[
+        {
+          "Neighbor":"AS_A",
+          "relation":"peer"
+        },
+        {
+          "Neighbor":"AS_C",
+          "relation":"peer"
+        },
+        {
+          "Neighbor":"AS_E",
+          "relation":"client"
+        },
+        {
+          "Neighbor":"AS_F",
+          "relation":"provider"
+        }
+      ],
+      "AS_C":[
+        {
+          "Neighbor":"AS_A",
+          "relation":"peer"
+        },
+        {
+          "Neighbor":"AS_B",
+          "relation":"peer"
+        }
+      ],
+      "AS_D":[
+        {
+          "Neighbor":"AS_A",
+          "relation":"provider"
+        }
+      ],
+      "AS_E":[
+        {
+          "Neighbor":"AS_B",
+          "relation":"provider"
+        }
+      ],
+      "AS_F":[
+        {
+          "Neighbor":"AS_B",
+          "relation":"client"
+        }
+      ]
+    }
+  },
+  "deployment":"Drag and Drop"
 }
