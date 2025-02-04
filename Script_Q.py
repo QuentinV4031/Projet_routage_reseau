@@ -1,8 +1,29 @@
 import json
+import os
+import shutil
 
 # Charger le fichier JSON contenant la configuration du réseau
-with open('intent_file.json', 'r') as file:
+with open('/home/oggy/GNS_linux/Projet_routage_reseau/intent_file.json', 'r') as file:
     network_config = json.load(file)
+
+# Dictionnaire de correspondance des répertoires pour chaque routeur
+router_directories = {
+    "R1": "/home/oggy/GNS_linux/Projet_routage_reseau/R1/",
+    "R2": "/home/oggy/GNS_linux/Projet_routage_reseau/R2/",
+    "R3": "/home/oggy/GNS_linux/Projet_routage_reseau/R3/",
+    "R4": "/home/oggy/GNS_linux/Projet_routage_reseau/R4/",
+    "R5": "/home/oggy/GNS_linux/Projet_routage_reseau/R5/",
+    "R6": "/home/oggy/GNS_linux/Projet_routage_reseau/R6/", #customer
+    "R7": "/home/oggy/GNS_linux/Projet_routage_reseau/R7/", #customer
+    "R8": "/home/oggy/GNS_linux/Projet_routage_reseau/R8/", 
+    "R9": "/home/oggy/GNS_linux/Projet_routage_reseau/R9/",
+    "R10": "/home/oggy/GNS_linux/Projet_routage_reseau/R10/",
+    "R11": "/home/oggy/GNS_linux/Projet_routage_reseau/R11/",
+    "R12": "/home/oggy/GNS_linux/Projet_routage_reseau/R12/", #provider
+    "R13": "/home/oggy/GNS_linux/Projet_routage_reseau/R13/", #provider
+    # Ajoutez d'autres correspondances si nécessaire
+}
+
 
 # Fonction pour générer la configuration Cisco d'un routeur
 def generate_cisco_config(router):
@@ -145,3 +166,13 @@ for router in network_config['architecture']:
     with open(config_filename, 'w') as config_file:
         config_file.write(config)
     print(f"Configuration générée pour {router_name} dans {config_filename}")
+
+
+   # Copier la configuration dans le répertoire correspondant
+    if router_name in router_directories:
+        target_directory = router_directories[router_name]
+        os.makedirs(target_directory, exist_ok=True)
+        shutil.copy(config_filename, target_directory)
+        print(f"Configuration copiée dans {target_directory}")
+    else:
+        print(f"Aucun répertoire configuré pour {router_name}, fichier non copié.")
