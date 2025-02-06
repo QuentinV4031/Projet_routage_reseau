@@ -12,7 +12,7 @@ Le script lit correctement le fichier intent_file.json pour extraire les informa
 
 Le script génère des configurations Cisco pour chaque routeur en fonction des informations fournies dans le fichier JSON.
 
-Les configurations incluent :
+#### Les configurations incluent :
 
 Configuration de base (hostname, IPv6, etc.).
 
@@ -43,7 +43,7 @@ Le script ne vérifie pas si le fichier JSON est bien formé ou s'il contient de
 
 Le script ne vérifie pas si les adresses IP des voisins BGP sont valides ou accessibles. Cela pourrait entraîner des erreurs lors de la configuration des routeurs.
 
-Gestion des zones OSPF :
+### Gestion des zones OSPF :
 
 Le script configure OSPF avec une zone fixe (area 0). Il serait préférable de permettre la configuration de différentes zones OSPF en fonction des besoins du réseau.
 
@@ -55,11 +55,11 @@ Le script ne génère pas de configurations pour les routeurs R13 et R14 (s'ils 
 
 Le script est entièrement axé sur IPv6. Si des configurations IPv4 sont nécessaires, elles ne sont pas prises en charge actuellement.
 
-Gestion des erreurs de copie :
+### Gestion des erreurs de copie :
 
 Le script ne vérifie pas si les répertoires de destination existent avant de copier les fichiers. Si un répertoire n'existe pas, une erreur pourrait survenir.
 
-Gestion des relations BGP complexes :
+### Gestion des relations BGP complexes :
 
 Le script ne gère pas les relations BGP complexes telles que les route-reflectors ou les confédérations BGP.
 
