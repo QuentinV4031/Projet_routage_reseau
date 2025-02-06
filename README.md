@@ -34,10 +34,6 @@ Le script copie les fichiers de configuration générés dans les répertoires s
 
 Le script vérifie si un répertoire est configuré pour chaque routeur. Si aucun répertoire n'est trouvé, un message d'avertissement est affiché.
 
-Ce qui ne fonctionne pas ou nécessite des améliorations :
-Gestion des erreurs dans le fichier JSON :
-
-Le script ne vérifie pas si le fichier JSON est bien formé ou s'il contient des erreurs. Si le fichier JSON est mal formaté, le script peut planter.
 
 ### Gestion des erreurs de connexion BGP :
 
@@ -46,22 +42,6 @@ Le script ne vérifie pas si les adresses IP des voisins BGP sont valides ou acc
 ### Gestion des zones OSPF :
 
 Le script configure OSPF avec une zone fixe (area 0). Il serait préférable de permettre la configuration de différentes zones OSPF en fonction des besoins du réseau.
-
-### Gestion des routeurs supplémentaires :
-
-Le script ne génère pas de configurations pour les routeurs R13 et R14 (s'ils existent), car ils ne sont pas définis dans le fichier JSON. Il serait utile d'ajouter une gestion dynamique des routeurs supplémentaires.
-
-### Gestion des adresses IPv4 :
-
-Le script est entièrement axé sur IPv6. Si des configurations IPv4 sont nécessaires, elles ne sont pas prises en charge actuellement.
-
-### Gestion des erreurs de copie :
-
-Le script ne vérifie pas si les répertoires de destination existent avant de copier les fichiers. Si un répertoire n'existe pas, une erreur pourrait survenir.
-
-### Gestion des relations BGP complexes :
-
-Le script ne gère pas les relations BGP complexes telles que les route-reflectors ou les confédérations BGP.
 
 ## Utilisation
 ### Prérequis :
