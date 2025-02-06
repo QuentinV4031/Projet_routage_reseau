@@ -131,6 +131,11 @@
           "interface":"FastEthernet0/0",
           "ip":"fc00:2:5::5/64",
           "igp":"False"
+        },
+        {
+          "interface":"GigabitEthernet1/0",
+          "ip":"fc00:5:9::5/64",
+          "igp":"False"
         }
       ],
       "ebgp":[
@@ -138,7 +143,11 @@
           "to":"R2",
           "peer_ip":"fc00:2:5::2",
           "peer_as":"AS_A"
-        }
+        },
+        {
+          "to":"R9",
+          "peer_ip":"fc00:5:9::9"
+          "peer_as":"AS_B"
       ],
       "loopback":"3::100:5"
     },
@@ -193,6 +202,11 @@
           "interface":"GigabitEthernet1/0",
           "ip":"2:9:10::9/64",
           "igp":"True"
+        },
+        {
+          "interface":"GigabitEthernet2/0",
+          "ip":"fc00:5:9::9/64",
+          "igp":"False"
         }
       ],
       "ebgp":[
@@ -200,6 +214,11 @@
           "to":"R2",
           "peer_ip":"fc00:2:9::2",
           "peer_as":"AS_A"
+        },
+        {
+          "to":"R5",
+          "peer_ip":"fc00:5:9::9",
+          "peer_as":"AS_C"
         }
       ],
       "loopback": "2::100:9"
@@ -269,9 +288,19 @@
           "interface":"GigabitEthernet1/0",
           "ip":"2:10:11::11/64",
           "igp":"True"
+        },
+        {
+          "interface":"FastEthernet0/0",
+          "ip":"fc00:7:11::11/64",
+          "igp":"False"
         }
       ],
-      "ebgp":[],
+      "ebgp":[
+        {
+          "to":"R7",
+          "peer_ip":"fc00:7:11::7",
+          "peer_as":"AS_E"
+      ],
       "loopback":"2::100:11"
     },
     {
